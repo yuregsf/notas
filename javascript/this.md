@@ -86,3 +86,44 @@ Para podermos amarrar o `this` ao objeto correto, utilizamos `bind`.
     falarDePessoa()
 
 >**Output:** Bom dia!
+
+***
+Outro exemplo onde vamos observar o comportamento do `this` e como amarrar ele ao valor esperado.
+
+    function Pessoa(){
+        this.idade = 0
+
+        setInterval(function(){
+            this.idade++
+            console.log(this.idade)
+        }, 1000)
+    }
+
+    new Pessoa
+
+Executando esse código a saída não é como esperada. Isso ocorre pois quem está chamando a função anônima é o próprio `setInterval`, portanto seu contexto é diferente e consequentemente o `this` é diferente.
+
+Para obtermos o resultado esperado podemos fazer duas alterações:
+
+### 1ª Alternativa
+
+    setInterval(function(){
+            this.idade++
+            console.log(this.idade)
+        }.bind(this), 1000)
+
+Utilizando o `bind` para referenciar o contexto correto.
+
+### 2ª Alternativa
+
+    function Pessoa(){
+        this.idade = 0
+
+        const self = this
+        setInterval(function(){
+            self.idade++
+            console.log(self.idade)
+        }, 1000)
+    }
+
+Criando uma constante `self` que carrega o `this` do contexto correto.
