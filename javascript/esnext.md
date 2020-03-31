@@ -36,13 +36,19 @@ A variável assume um valor padrão caso nenhum valor seja passado como parâmet
 
 ## Operador rest/spread
 
-Agrupa vários elementos em um array.
+É chamado rest quando agrupa vários elementos em uma estrutura, como por exemplo.
 
     function total(...numeros){
         let total = 0
         numeros.forEach(n => total += n)
         return total
     }
+
+Já no caso do spread é quando "espalha" elementos em uma estrutura.
+
+    const funcionario = { nome: 'Maria', salario: 12345.99 }
+    const clone = { ative: true, ...funcionario }
+    // O objeto funcionário é espalhado dentro do objeto clone
 
 ## `Object.entries`
 
