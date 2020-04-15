@@ -81,3 +81,11 @@ Por debaixo dos panos é como uma função, mas para quem já trabalha com POO s
     class Cachorro extends Animal{}
 
 Exemplo de herança de classes. No fundo é uma herança por `prototype`.
+
+## Promises
+
+É uma promessa, você usa quando quer ter um processamento assíncrono. Ela é resolvida ou rejeitada. Ex: você quer acessar um arquivo, caso obtenha sucesso executa uma callback, caso contrário executa outra callback.
+
+## Async/Await
+
+Função marcada como async pode utilizar o await. Espera resolver a promessa para trabalhar com ela. Retorna uma AsyncFunction.
